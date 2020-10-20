@@ -10,7 +10,7 @@ docker run -p 8080:80 <YourProjectImageName>
 
 # dotnet
 ```bash
-# restore all dependences
+# restore all dependencies
 dotnet restore
 # build
 dotnet build
