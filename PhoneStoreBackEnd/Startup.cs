@@ -68,6 +68,8 @@ namespace PhoneStoreBackEnd
                 )
             );
             services.AddMvc();
+
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,6 +83,14 @@ namespace PhoneStoreBackEnd
             {
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(endpoints =>
+            {
+                endpoints.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                endpoints.RoutePrefix = string.Empty;
+            });
 
             app.UseHttpsRedirection();
 
