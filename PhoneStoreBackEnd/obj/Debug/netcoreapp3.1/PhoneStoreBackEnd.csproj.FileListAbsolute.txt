@@ -75,6 +75,8 @@ C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcore
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Npgsql.dll
+C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcoreapp3.1\PhoneStoreBackEnd.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcoreapp3.1\PhoneStoreBackEnd.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcoreapp3.1\PhoneStoreBackEnd.MvcApplicationPartsAssemblyInfo.cache

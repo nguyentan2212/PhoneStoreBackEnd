@@ -26,11 +26,12 @@ namespace PhoneStoreBackEnd
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            services.AddCors();          
             services.AddDbContext<PhoneStoreContext>(options =>
             {
                 //options.UseInMemoryDatabase("Phone-Store-API-Database");
-                options.UseSqlServer(Configuration.GetConnectionString("PhoneStoreContext"));
+                //options.UseSqlServer(Configuration.GetConnectionString("PhoneStoreContext"));
+                options.UseNpgsql(Configuration.GetConnectionString("DATABASE_URL"));
             });
             
             // add identity
@@ -83,7 +84,7 @@ namespace PhoneStoreBackEnd
             {
                 app.UseHsts();
             }
-
+            app.UseHttpsRedirection();
             app.UseSwagger();
 
             app.UseSwaggerUI(endpoints =>

@@ -25,7 +25,7 @@ namespace PhoneStoreBackEnd.Data.Contexts
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Phone>().Property(p => p.Price).HasColumnType("money");
+            builder.Entity<Phone>().Property(p => p.Price).HasColumnType("money");       
 
             string jsonConnect = @"C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\PhonesUpdate.Json";
             string phonesJson = File.ReadAllText(jsonConnect);

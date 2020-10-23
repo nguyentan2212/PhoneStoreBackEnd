@@ -1,9 +1,10 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace PhoneStoreBackEnd.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialPostgresql : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,10 +54,23 @@ namespace PhoneStoreBackEnd.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(type: "money", nullable: false),
-                    Image = table.Column<string>(nullable: true)
+                    Image = table.Column<string>(nullable: true),
+                    Brand = table.Column<string>(nullable: true),
+                    Screen = table.Column<string>(nullable: true),
+                    ScreenSize = table.Column<float>(nullable: false),
+                    OS = table.Column<string>(nullable: true),
+                    RearCamera = table.Column<string>(nullable: true),
+                    FrontCamera = table.Column<string>(nullable: true),
+                    CPU = table.Column<string>(nullable: true),
+                    RAM = table.Column<int>(nullable: false),
+                    Storage = table.Column<int>(nullable: false),
+                    MemoryCard = table.Column<string>(nullable: true),
+                    SIM = table.Column<string>(nullable: true),
+                    BatteryCapacity = table.Column<int>(nullable: false),
+                    HasQuickCharge = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -68,7 +82,7 @@ namespace PhoneStoreBackEnd.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -89,7 +103,7 @@ namespace PhoneStoreBackEnd.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -171,37 +185,26 @@ namespace PhoneStoreBackEnd.Migrations
 
             migrationBuilder.InsertData(
                 table: "Phones",
-                columns: new[] { "Id", "Image", "Name", "Price" },
+                columns: new[] { "Id", "BatteryCapacity", "Brand", "CPU", "FrontCamera", "HasQuickCharge", "Image", "MemoryCard", "Name", "OS", "Price", "RAM", "RearCamera", "SIM", "Screen", "ScreenSize", "Storage" },
                 values: new object[,]
                 {
-                    { 1, "https://cdn.tgdd.vn/Products/Images/42/220522/Feature/samsung-galaxy-note-20-ultra-spec-fixed-720x333.jpg", "Samsung Galaxy Note 20 Ultra", 29990000.0m },
-                    { 26, "https://cdn.tgdd.vn/Products/Images/42/206176/samsung-galaxy-note-10-plus-171220-101247-400x400.jpg", "Samsung Galaxy Note 10+", 15990000.0m },
-                    { 25, "https://cdn.tgdd.vn/Products/Images/42/223290/vivo-x50-pro-155920-035955-200x200.jpg", "Vivo X50 Pro", 18990000.0m },
-                    { 24, "https://cdn.tgdd.vn/Products/Images/42/217935/samsung-galaxy-s20-600x600-hong-400x400.jpg", "Samsung Galaxy S20", 21490000.0m },
-                    { 23, "https://cdn.tgdd.vn/Products/Images/42/210644/iphone-11-128gb-green-400x400.jpg", "iPhone 11 128GB", 21990000.0m },
-                    { 22, "https://cdn.tgdd.vn/Products/Images/42/198150/oppo-find-x2-blue-600x600-400x400.jpg", "OPPO Find X2", 19990000.0m },
-                    { 21, "https://cdn.tgdd.vn/Products/Images/42/214638/oneplus-8-pro-1-200x200.jpg", "OnePlus 8 Pro 5G", 22990000.0m },
-                    { 20, "https://cdn.tgdd.vn/Products/Images/42/215773/huawei-p40-pro-600x600-3-400x400.jpg", "Huawei P40 Pro (Nền tảng Huawei Mobile Service)", 21990000.0m },
-                    { 19, "https://cdn.tgdd.vn/Products/Images/42/218355/samsung-galaxy-note-20-062220-122200-400x400.jpg", "Samsung Galaxy Note 20", 23990000.0m },
-                    { 18, "https://cdn.tgdd.vn/Products/Images/42/217936/samsung-galaxy-s20-plus-600x600-fix-400x400.jpg", "Samsung Galaxy S20+", 16990000.0m },
-                    { 17, "https://cdn.tgdd.vn/Products/Images/42/210648/iphone-11-256gb-black-400x400.jpg", "iPhone 11 256GB", 23990000.0m },
-                    { 16, "https://cdn.tgdd.vn/Products/Images/42/188705/iphone-11-pro-black-400x400.jpg", "iPhone 11 Pro 64GB", 27990000.0m },
-                    { 15, "https://cdn.tgdd.vn/Products/Images/42/200533/iphone-11-pro-max-green-400x400.jpg", "iPhone 11 Pro Max 64GB", 30990000.0m },
-                    { 14, "https://cdn.tgdd.vn/Products/Images/42/210655/iphone-11-pro-256gb-black-400x400.jpg", "iPhone 11 Pro 256GB", 31990000.0m },
-                    { 13, "https://cdn.tgdd.vn/Products/Images/42/225063/samsung-galaxy-note-20-ultra-5g-063420-123447-400x400.jpg", "Samsung Galaxy Note 20 Ultra 5G", 32990000.0m },
-                    { 12, "https://cdn.tgdd.vn/Products/Images/42/210653/iphone-11-pro-max-256gb-black-400x400.jpg", "iPhone 11 Pro Max 256GB", 34990000.0m },
-                    { 11, "https://cdn.tgdd.vn/Products/Images/42/213022/samsung-galaxy-z-flip-den-600x600-400x400.jpg", "Samsung Galaxy Z Flip", 36000000.0m },
-                    { 10, "https://cdn.tgdd.vn/Products/Images/42/210654/iphone-11-pro-max-512gb-gold-400x400.jpg", "iPhone 11 Pro Max 512GB", 38990000.0m },
-                    { 9, "https://cdn.tgdd.vn/Products/Images/42/226099/samsung-galaxy-z-fold-2-061220-021232-200x200.jpg", "Samsung Galaxy Z Fold2 5G", 50000000.0m },
-                    { 8, "https://cdn.tgdd.vn/Products/Images/42/228888/vsmart-joy-4-4gb-64gb-171020-021003-400x400.jpg", "Vsmart Joy 4 (4GB/64GB)", 3590000.0m },
-                    { 7, "https://cdn.tgdd.vn/Products/Images/42/227689/realme-7-pro-043220-013244-400x400.jpg", "Realme 7 Pro", 8490000.0m },
-                    { 6, "https://cdn.tgdd.vn/Products/Images/42/219314/samsung-galaxy-a21s-055620-045659-400x400.jpg", "Samsung Galaxy A21s (6GB/64GB)", 4830000.0m },
-                    { 5, "https://cdn.tgdd.vn/Products/Images/42/220654/Feature/1602154414868-720x333.png", "OPPO A92", 5940000.0m },
-                    { 4, "https://cdn.tgdd.vn/Products/Images/42/217308/xiaomi-redmi-9-114620-094644-400x400.jpg", "Xiaomi Redmi 9 (4GB/64GB)", 3590000.0m },
-                    { 3, "https://cdn.tgdd.vn/Products/Images/42/153856/iphone-11-red-400x400.jpg", "iPhone 11 64GB", 19990000.0m },
-                    { 2, "https://cdn.tgdd.vn/Products/Images/42/229056/oppo-a93-230520-060532-200x200.jpg", "OPPO A93", 7490000.0m },
-                    { 27, "https://cdn.tgdd.vn/Products/Images/42/190323/iphone-xs-gold-600x600-2-400x400.jpg", "iPhone Xs 64GB", 17990000.0m },
-                    { 28, "https://cdn.tgdd.vn/Products/Images/42/222631/iphone-se-256gb-2020-261920-101916-200x200.jpg", "iPhone SE 256GB (2020)", 17990000.0m }
+                    { 1, 4500, "Samsung", "Exynos 990 8 nhân", "10 MP", true, "https://cdn.tgdd.vn/Products/Images/42/220522/samsung-galaxy-note-20-ultra-vangdong-400x460-400x460.png", "MicroSD, hỗ trợ tối đa 1 TB", "Điện thoại Samsung Galaxy Note 20 Ultra", "Android 10", 29990000.0m, 8, "Chính 108 MP & Phụ 12 MP, 12 MP, cảm biến Laser AF", "2 Nano SIM hoặc 1 Nano SIM + 1 eSIM, Hỗ trợ 4G", "Dynamic AMOLED 2X, 6.9\", Quad HD+ (2K+)", 6.9f, 256 },
+                    { 15, 3969, "iPhone (Apple)", "Apple A13 Bionic 6 nhân", "12 MP", true, "https://cdn.tgdd.vn/Products/Images/42/200533/iphone-11-pro-max-black-400x460.png", null, "Điện thoại iPhone 11 Pro Max 64GB", "iOS 13", 30990000.0m, 4, "3 camera 12 MP", "1 Nano SIM & 1 eSIM, Hỗ trợ 4G", "OLED, 6.5\", Super Retina XDR", 6.5f, 64 },
+                    { 14, 3046, "iPhone (Apple)", "Apple A13 Bionic 6 nhân", "12 MP", true, "https://cdn.tgdd.vn/Products/Images/42/210655/iphone-11-pro-256gb-black-400x460.png", null, "Điện thoại iPhone 11 Pro 256GB", "iOS 13", 31990000.0m, 4, "3 camera 12 MP", "1 Nano SIM & 1 eSIM, Hỗ trợ 4G", "OLED, 5.8\", Super Retina XDR", 5.8f, 256 },
+                    { 13, 4500, "Samsung", "Exynos 990 8 nhân", "10 MP", true, "https://cdn.tgdd.vn/Products/Images/42/225063/samsung-galaxy-note-20-ultra-5g-vangdong-400x460-400x460.png", "MicroSD, hỗ trợ tối đa 1 TB", "Điện thoại Samsung Galaxy Note 20 Ultra 5G", "Android 10", 32990000.0m, 12, "Chính 108 MP & Phụ 12 MP, 12 MP, cảm biến Laser AF", "2 Nano SIM hoặc 1 Nano SIM + 1 eSIM, Hỗ trợ 5G", "Dynamic AMOLED 2X, 6.9\", Quad HD+ (2K+)", 6.9f, 256 },
+                    { 12, 3969, "iPhone (Apple)", "Apple A13 Bionic 6 nhân", "12 MP", true, "https://cdn.tgdd.vn/Products/Images/42/210653/iphone-11-pro-max-256gb-black-400x460.png", null, "Điện thoại iPhone 11 Pro Max 256GB", "iOS 13", 34990000.0m, 4, "3 camera 12 MP", "1 Nano SIM & 1 eSIM, Hỗ trợ 4G", "OLED, 6.5\", Super Retina XDR", 6.5f, 256 },
+                    { 11, 0, "Samsung", null, null, false, "https://cdn.tgdd.vn/Products/Images/42/213022/samsung-galaxy-z-flip-chitiet-2-788x544.png", null, "Điện thoại Samsung Galaxy Z Flip", null, 36000000.0m, 0, null, null, "Chính: Dynamic AMOLED, Phụ: Super AMOLED, 6.7\", Quad HD (2K)", 0f, 0 },
+                    { 10, 3969, "iPhone (Apple)", "Apple A13 Bionic 6 nhân", "12 MP", true, "https://cdn.tgdd.vn/Products/Images/42/210654/iphone-11-pro-max-512gb-gold-400x460.png", null, "Điện thoại iPhone 11 Pro Max 512GB", "iOS 13", 38990000.0m, 4, "3 camera 12 MP", "1 Nano SIM & 1 eSIM, Hỗ trợ 4G", "OLED, 6.5\", Super Retina XDR", 6.5f, 512 },
+                    { 16, 3046, "iPhone (Apple)", "Apple A13 Bionic 6 nhân", "12 MP", true, "https://cdn.tgdd.vn/Products/Images/42/188705/iphone-11-pro-black-400x460.png", null, "Điện thoại iPhone 11 Pro 64GB", "iOS 13", 27990000.0m, 4, "3 camera 12 MP", "1 Nano SIM & 1 eSIM, Hỗ trợ 4G", "OLED, 5.8\", Super Retina XDR", 5.8f, 64 },
+                    { 9, 0, "Samsung", null, null, false, "https://cdn.tgdd.vn/Products/Images/42/226099/samsung-galaxy-z-fold-2-061220-021202-400x460.png", null, "Điện thoại Samsung Galaxy Z Fold2 5G", null, 50000000.0m, 0, null, null, "Chính: Dynamic AMOLED, Phụ: Super AMOLED, Chính 7.59\" & Phụ 6.23\", Full HD+", 0f, 0 },
+                    { 7, 4500, "Realme", "Snapdragon 720G 8 nhân", "32 MP", true, "https://cdn.tgdd.vn/Products/Images/42/227689/realme-7-pro-043220-013214-400x460.png", "MicroSD, hỗ trợ tối đa 256 GB", "Điện thoại Realme 7 Pro", "Android 10", 8990000.0m, 8, "Chính 64 MP & Phụ 8 MP, 2 MP, 2 MP", "2 Nano SIM, Hỗ trợ 4G", "Super AMOLED, 6.44\", Full HD+", 6.44f, 128 },
+                    { 6, 5000, "Samsung", "Exynos 850 8 nhân", "13 MP", true, "https://cdn.tgdd.vn/Products/Images/42/219314/samsung-galaxy-a21s-055620-045627-400x460.png", "MicroSD, hỗ trợ tối đa 512 GB", "Điện thoại Samsung Galaxy A21s (6GB/64GB)", "Android 10", 5290000.0m, 6, "Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP", "2 Nano SIM, Hỗ trợ 4G", "TFT LCD, 6.5\", HD+", 6.5f, 64 },
+                    { 5, 4015, "OPPO", "Snapdragon 720G 8 nhân", "Chính 32 MP & Phụ cảm biến thông minh A.I", true, "https://cdn.tgdd.vn/Products/Images/42/222596/oppo-reno4-260720-040737-400x460.png", "MicroSD, hỗ trợ tối đa 256 GB", "Điện thoại OPPO Reno4", "Android 10", 8490000.0m, 8, "Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP", "2 Nano SIM, Hỗ trợ 4G", "AMOLED, 6.4\", Full HD+", 6.4f, 128 },
+                    { 4, 5020, "Xiaomi", "MediaTek Helio G80 8 nhân", "8 MP", true, "https://cdn.tgdd.vn/Products/Images/42/217308/xiaomi-redmi-9-114620-094649-400x460.png", "MicroSD, hỗ trợ tối đa 512 GB", "Điện thoại Xiaomi Redmi 9 (4GB/64GB)", "Android 10", 3790000.0m, 4, "Chính 13 MP & Phụ 8 MP, 5 MP, 2 MP", "2 Nano SIM, Hỗ trợ 4G", "IPS LCD, 6.53\", Full HD+", 6.53f, 64 },
+                    { 3, 3110, "iPhone (Apple)", "Apple A13 Bionic 6 nhân", "12 MP", true, "https://cdn.tgdd.vn/Products/Images/42/153856/iphone-11-red-2-400x460-400x460.png", null, "Điện thoại iPhone 11 64GB", "iOS 13", 19990000.0m, 4, "2 camera 12 MP", "1 Nano SIM & 1 eSIM, Hỗ trợ 4G", "IPS LCD, 6.1\", Liquid Retina", 6.1f, 64 },
+                    { 2, 5000, "OPPO", "Snapdragon 665 8 nhân", "16 MP", true, "https://cdn.tgdd.vn/Products/Images/42/220654/oppo-a92-tim-400x460-400x460.png", "MicroSD, hỗ trợ tối đa 256 GB", "Điện thoại OPPO A92", "Android 10", 6490000.0m, 8, "Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP", "2 Nano SIM, Hỗ trợ 4G", "TFT LCD, 6.5\", Full HD+", 6.5f, 128 },
+                    { 8, 5000, "Vsmart", "Snapdragon 632 8 nhân", "8 MP", true, "https://cdn.tgdd.vn/Products/Images/42/219208/vsmart-joy-3-4gb-den-400x460-400x460.png", "MicroSD, hỗ trợ tối đa 64 GB", "Điện thoại Vsmart Joy 3 (4GB/64GB)", "Android 9 (Pie)", 2990000.0m, 4, "Chính 13 MP & Phụ 8 MP, 2 MP", "2 Nano SIM, Hỗ trợ 4G", "IPS LCD, 6.5\", HD+", 6.5f, 64 },
+                    { 17, 3110, "iPhone (Apple)", "Apple A13 Bionic 6 nhân", "12 MP", true, "https://cdn.tgdd.vn/Products/Images/42/210648/iphone-11-256gb-black-400x460.png", null, "Điện thoại iPhone 11 256GB", "iOS 13", 23990000.0m, 4, "2 camera 12 MP", "1 Nano SIM & 1 eSIM, Hỗ trợ 4G", "IPS LCD, 6.1\", Liquid Retina", 6.1f, 256 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -213,8 +216,7 @@ namespace PhoneStoreBackEnd.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true,
-                filter: "[NormalizedName] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -240,8 +242,7 @@ namespace PhoneStoreBackEnd.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL");
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

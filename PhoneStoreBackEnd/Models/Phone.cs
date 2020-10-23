@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PhoneStoreBackEnd.Models
 {
@@ -26,6 +27,7 @@ namespace PhoneStoreBackEnd.Models
         public string MemoryCard { get; set; }
         public string SIM { get; set; }
         public int BatteryCapacity { get; set; }
+        [Column(TypeName = "boolean")]
         public bool HasQuickCharge { get; set; }
     }
 }
