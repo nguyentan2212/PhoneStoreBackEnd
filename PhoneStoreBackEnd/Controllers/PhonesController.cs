@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PhoneStoreBackEnd.Data.Contexts;
+using PhoneStoreBackEnd.Data.UnitOfWork;
 using PhoneStoreBackEnd.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -14,17 +15,17 @@ namespace PhoneStoreBackEnd.Controllers
     [ApiController]
     public class PhonesController : ControllerBase
     {
-        private PhoneStoreContext context;
-        public PhonesController(PhoneStoreContext context)
+        private IUnitOfWork uow;
+        public PhonesController(IUnitOfWork uow)
         {
-            this.context = context;
+            this.uow = uow;
         }
         // GET: api/<PhonesController>
         [HttpGet]
-        public IEnumerable<Phone> Get()
+        public async Task<IEnumerable<Phone>> Get()
         {
 
-            return context.Phones.ToList();
+            return await uow.PhoneRepository.GetAllAsync();
         }
 
         // GET api/<PhonesController>/5

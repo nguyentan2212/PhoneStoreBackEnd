@@ -2,7 +2,6 @@ C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcore
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\PhoneStoreBackEnd.exe
-C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcoreapp3.1\PhoneStoreBackEnd.csprojAssemblyReference.cache
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcoreapp3.1\PhoneStoreBackEnd.AssemblyInfoInputs.cache
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcoreapp3.1\PhoneStoreBackEnd.AssemblyInfo.cs
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcoreapp3.1\PhoneStoreBackEnd.RazorTargetAssemblyInfo.cache
@@ -65,11 +64,6 @@ C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcore
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcoreapp3.1\PhoneStoreBackEnd.genruntimeconfig.cache
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Phones.Json
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Microsoft.Owin.dll
-C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Microsoft.Owin.Security.dll
-C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Microsoft.Owin.Security.Jwt.dll
-C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Microsoft.Owin.Security.OAuth.dll
-C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Owin.dll
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\PhonesUpdate.Json
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
@@ -80,3 +74,4 @@ C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\bin\Debug\netcore
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcoreapp3.1\PhoneStoreBackEnd.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcoreapp3.1\PhoneStoreBackEnd.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcoreapp3.1\PhoneStoreBackEnd.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ASUS\source\repos\PhoneStoreBackEnd\PhoneStoreBackEnd\obj\Debug\netcoreapp3.1\PhoneStoreBackEnd.csprojAssemblyReference.cache

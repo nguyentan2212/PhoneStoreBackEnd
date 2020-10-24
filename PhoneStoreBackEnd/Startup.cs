@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using PhoneStoreBackEnd.Data.Contexts;
+using PhoneStoreBackEnd.Data.UnitOfWork;
 using PhoneStoreBackEnd.Models;
 using PhoneStoreBackEnd.Services;
 using System.Text;
@@ -28,8 +29,7 @@ namespace PhoneStoreBackEnd
         {
             services.AddCors();          
             services.AddDbContext<PhoneStoreContext>(options =>
-            {
-                //options.UseInMemoryDatabase("Phone-Store-API-Database");
+            {                
                 //options.UseSqlServer(Configuration.GetConnectionString("PhoneStoreContext"));
                 options.UseNpgsql(Configuration.GetConnectionString("DATABASE_URL"));
             });
@@ -68,6 +68,7 @@ namespace PhoneStoreBackEnd
                     Configuration.GetValue<int>("JWTLifespan")
                 )
             );
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddMvc();
 
             services.AddSwaggerGen();
