@@ -10,6 +10,7 @@ docker run -p 8080:80 <YourProjectImageName>
 
 # dotnet
 ```bash
+cd PhoneStoreBackEnd
 # restore all dependencies
 dotnet restore
 # build
